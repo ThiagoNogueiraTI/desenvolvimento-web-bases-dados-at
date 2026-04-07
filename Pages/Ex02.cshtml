@@ -1,0 +1,21 @@
+﻿@page
+@model at.Pages.Ex02Model
+@{
+    ViewData["Title"] = "Ex02 - Multicast Delegate para Logs";
+}
+
+<h2>Exercício 02 — Multicast Delegate para Registro de Logs</h2>
+
+<form method="post">
+    <label for="operation">Informe a mensagem a ser enviada:</label>
+    <input type="text" id="operation" name="operation" value="@Model.Operation" />
+
+    <button type="submit" class="btn btn-primary">Registrar Log</button>
+</form>
+
+@if (Model.Operation != "")
+{
+    <p>Conferir logs no console.</p>
+}
+
+<a href="/" class="btn btn-primary">Voltar</a>

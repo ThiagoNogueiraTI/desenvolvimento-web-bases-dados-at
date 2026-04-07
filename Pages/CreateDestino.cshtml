@@ -1,0 +1,29 @@
+﻿@page
+@model at.Pages.CreateDestinoModel
+@{
+    ViewData["Title"] = "Criar Destino";
+}
+<h2>Cadastro de Destino</h2>
+
+<form method="post">
+    <div>
+        <label>Nome do destino:</label>
+        <input type="text" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <br />
+    <div>
+        <label>País do destino:</label>
+        <input type="text" asp-for="Country" />
+        <span asp-validation-for="Country"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary my-2">Cadastrar</button>
+</form>
+
+@if (Model.Message != null)
+{
+    <p>@Model.Message</p>
+}
+
+<a href="/" class="btn btn-primary">Voltar</a>

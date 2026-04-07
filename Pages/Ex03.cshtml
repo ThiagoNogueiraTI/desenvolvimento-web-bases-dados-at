@@ -1,0 +1,26 @@
+﻿@page
+@model at.Pages.Ex03Model
+@{
+    ViewData["Title"] = "Ex03 - Func com Expressão Lambda";
+}
+
+<h2>Exercício 03 — Func com Expressão Lambda</h2>
+
+<form method="post">
+    <label for="participants">Número de Participantes:</label>
+    <input type="number" id="participants" name="participants" value="@Model.Participants" min="1" />
+
+    <label for="packagePrice">Preço do Pacote: R$</label>
+    <input type="text" step="0.01" id="packagePrice" name="packagePrice" value="@Model.PackagePrice" min="0" />
+
+    <button type="submit" class="btn btn-primary">Calcular Total</button>
+</form>
+
+@if (Model.Total.HasValue)
+{
+    <p>Participantes: @Model.Participants</p>
+    <p>Preço por pessoa: R$ @Model.PackagePrice.ToString("F2")</p>
+    <p>Valor total da reserva: R$ @Model.Total.Value.ToString("F2")</p>
+}
+
+<a href="/" class="btn btn-primary">Voltar</a>

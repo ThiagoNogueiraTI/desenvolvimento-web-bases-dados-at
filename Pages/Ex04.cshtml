@@ -1,0 +1,20 @@
+﻿@page
+@model at.Pages.Ex04Model
+@{
+    ViewData["Title"] = "Ex04 - Evento de Alerta para Limite de Capacidade";
+}
+
+<h2>Exercício 04 — Evento de Alerta para Limite de Capacidade</h2>
+
+<form method="post">
+    <label>Número de Reservas a Registrar:</label>
+    <input type="number" asp-for="ReservationCount" min="1" />
+    <button type="submit" class="btn btn-primary">Registrar Reservas</button>
+</form>
+
+@if (Model.Message != null)
+{
+    <p>@Model.Message</p>
+}
+
+<a href="/" class="btn btn-primary">Voltar</a>

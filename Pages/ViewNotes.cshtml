@@ -1,0 +1,58 @@
+﻿@page
+@model at.Pages.ViewNotesModel
+@{
+    ViewData["Title"] = "Notas";
+}
+
+<h2>Sistema de Notas</h2>
+
+<form method="post">
+    <div>
+        <label>Nome da nota:</label>
+        <input type="text" asp-for="NoteName" />
+        <span asp-validation-for="NoteName"></span>
+    </div>
+    <br />
+    <div>
+        <label>Conteúdo da nota:</label>
+        <textarea asp-for="Content" rows="5" cols="40"></textarea>
+        <span asp-validation-for="Content"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Salvar Nota</button>
+</form>
+
+@if (TempData["Message"] != null)
+{
+    <br />
+    <p>@TempData["Message"]</p>
+}
+
+<hr />
+<h3>Arquivos disponíveis:</h3>
+
+@if (Model.Files.Count > 0)
+{
+    <ul>
+        @foreach (var file in Model.Files)
+        {
+            <li>
+                <a asp-page="ViewNotes" asp-route-fileName="@file">@file</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>Nenhuma nota encontrada.</p>
+}
+
+@if (Model.SelectedContent != null)
+{
+    <hr />
+    <h3>Conteúdo: @Model.SelectedFileName</h3>
+    <pre>@Model.SelectedContent</pre>
+}
+
+<br />
+<a href="/" class="btn btn-primary">Voltar</a>

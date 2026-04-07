@@ -1,0 +1,23 @@
+﻿@page
+@model at.Pages.CreateReservaModel
+@{
+    ViewData["Title"] = "Ex05 - Cadastro de Reserva";
+}
+
+<h2>Cadastro de Reserva</h2>
+
+<form method="post">
+    <div>
+        <label>Nome do Cliente:</label>
+        <input type="text" asp-for="ClientName" />
+        <span asp-validation-for="ClientName"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary my-2">Cadastrar</button>
+</form>
+
+@if (Model.Message != null)
+{
+    <p>@Model.Message</p>
+}
+<a href="/" class="btn btn-primary">Voltar</a>

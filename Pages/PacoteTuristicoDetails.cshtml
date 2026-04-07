@@ -1,0 +1,17 @@
+﻿@page "{id:int}"
+@model at.Pages.PacoteTuristicoDetailsModel
+@{
+    ViewData["Title"] = "Detalhes do Pacote";
+}
+
+<h2>Detalhes do Pacote Turístico</h2>
+
+@if (Model.TourPackage != null)
+{
+    <p>ID: @Model.TourPackage.Id</p>
+    <p>Título: @Model.TourPackage.Titulo</p>
+    <p>Capacidade Máxima: @Model.TourPackage.CapacidadeMaxima</p>
+    <p>Preço: R$ @Model.TourPackage.Preco.ToString("F2")</p>
+}
+
+<a asp-page="Ex07" class="btn btn-primary">Voltar</a>

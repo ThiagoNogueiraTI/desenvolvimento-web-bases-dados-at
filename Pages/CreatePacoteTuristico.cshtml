@@ -1,0 +1,24 @@
+﻿@page
+@model at.Pages.CreatePacoteTuristicoModel
+@{
+    ViewData["Title"] = "Ex05 - Cadastro de Pacote Turístico";
+}
+
+<h2>Cadastro de Pacote Turístico</h2>
+
+<form method="post">
+    <div>
+        <label>Título:</label>
+        <input type="text" asp-for="Title" />
+        <span asp-validation-for="Title"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary my-2">Cadastrar</button>
+</form>
+
+@if (Model.Message != null)
+{
+    <p>@Model.Message</p>
+}
+
+<a href="/" class="btn btn-primary">Voltar</a>
